@@ -18,6 +18,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<property name="connection.useUnicode">true</property>
+		<property name="connection.characterEncoding">utf-8</property>
 	</properties>
 
 	<dependencies>
@@ -169,6 +171,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency> 
+		<dependency>
+		    <groupId>com.thetransactioncompany</groupId>
+		    <artifactId>cors-filter</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
 	</dependencies>
 	
 
