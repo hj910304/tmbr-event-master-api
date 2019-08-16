@@ -1,4 +1,4 @@
-package com.skcc.mbr.saga.controller;
+package com.skcc.mbr.saga.eventInfo.controller;
 
 import java.util.List;
 
@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.mbr.saga.domain.Event.EventInfo;
-import com.skcc.mbr.saga.domain.coupon.Coupon;
-import com.skcc.mbr.saga.service.EventMasterService;
+import com.skcc.mbr.saga.coupon.domain.Coupon;
+import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
+import com.skcc.mbr.saga.eventInfo.service.EventMasterService;
 
 import io.swagger.annotations.Api;
 
 @EnableAutoConfiguration
 @Api(value="main")
 @RestController
-@RequestMapping("EventMaster")
+@RequestMapping("/EventMaster")
 @CrossOrigin(origins="*")
 public class EventMasterController {
 	
-	@Autowired
 	EventMasterService eventMasterService;
 	
 	@RequestMapping(value="getAllEventInfo" , method=RequestMethod.GET)
@@ -35,13 +34,13 @@ public class EventMasterController {
 		return eventMasterService.getOneEventInfo(eventId);
 	}
 	
-	@RequestMapping(value="getAllCoupon", method=RequestMethod.GET)
-	public List<Coupon> getAllCoupon(){
-		return eventMasterService.getAllCoupon(); 
-	}
-	
-	@RequestMapping(value="getFindCoupon", method=RequestMethod.GET)
-	public List<Coupon> getFindCoupon(Long eventId){
-		return eventMasterService.getOneCoupon(eventId);
-	}
+//	@RequestMapping(value="getAllCoupon", method=RequestMethod.GET)
+//	public List<Coupon> getAllCoupon(){
+//		return eventMasterService.getAllCoupon(); 
+//	}
+//	
+//	@RequestMapping(value="getFindCoupon", method=RequestMethod.GET)
+//	public List<Coupon> getFindCoupon(Long eventId){
+//		return eventMasterService.getOneCoupon(eventId);
+//	}
 }

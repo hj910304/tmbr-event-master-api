@@ -1,4 +1,4 @@
-package com.skcc.mbr.saga.domain.Event;
+package com.skcc.mbr.saga.eventInfo.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.skcc.mbr.saga.domain.coupon;
+package com.skcc.mbr.saga.coupon.domain;
 
 import java.util.List;
 

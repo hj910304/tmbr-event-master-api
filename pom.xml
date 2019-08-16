@@ -3,6 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<repositories>
+    	<repository>
+	     	<id>central</id>
+	     	<url>https://dl.bintray.com/eventuateio-oss/eventuate-maven-release/</url>
+	     
+<!-- 	      <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+      <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+-->	    </repository>
+	    <repository>
+	      	<id>central2</id>
+	      	<url>https://repo.maven.apache.org/maven2</url>
+<!-- 	      <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+      <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots> -->
+   		</repository>
+   		<repository>
+	     	<id>central3</id>
+	     	<url>https://dl.bintray.com/eventuateio-oss/eventuate-maven-rc</url>
+<!-- 	      <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
+      <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+-->	    </repository>
+   </repositories> 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -28,7 +49,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>2.1.6.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
-		<dependency>
+ 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -76,52 +97,109 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-        <dependency>
-    		<groupId>com.networknt</groupId>
-    		<artifactId>eventuate-common</artifactId>
-    		<version>2.0.2</version>
+        
+        <!-- Eventuate -->
+<!--         <dependency>
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-tram-sagas-simple-dsl</artifactId>
+		    <version>0.7.2.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>tram-event</artifactId>
-			<version>1.6.4</version>
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-jpa-sagas-framework</artifactId>
+		    <version>0.11.1.RELEASE</version>
 		</dependency>
-        <!-- Eventuate -->
-<!-- 		<dependency>
-    		<groupId>com.networknt</groupId>
-    		<artifactId>eventuate-common</artifactId>
-    		<version>2.0.2</version>
+		<dependency>
+		    <groupId>io.eventuate.tram.core</groupId>
+		    <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+		    <version>0.22.0.RC5</version>
 		</dependency>
  		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>eventuate-event</artifactId>
-			<version>2.0.2</version>
+		    <groupId>io.eventuate.tram.core</groupId>
+  			<artifactId>eventuate-tram-messaging</artifactId>
+ 			<version>0.22.0.RC5</version>
 		</dependency>
 		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>eventuate-client</artifactId>
-			<version>2.0.2</version>
+			<groupId>io.eventuate.tram.core</groupId>
+  			<artifactId>eventuate-tram-messaging-jdbc</artifactId>
+  			<version>0.20.0.RC3</version>
 		</dependency>
 		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>eventuate-jdbc</artifactId>
-			<version>1.5.1</version>
+			<groupId>io.eventuate.tram.core</groupId>	
+  			<artifactId>eventuate-tram-messaging-producer-common</artifactId>
+  			<version>0.22.0.RC5</version>
 		</dependency>
 		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>tram-event</artifactId>
-			<version>1.6.4</version>
+			<groupId>io.eventuate.tram.core</groupId>
+  			<artifactId>eventuate-tram-producer-jdbc</artifactId>
+ 			 <version>0.21.3.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>com.networknt</groupId>
-			<artifactId>eventuate-client</artifactId>
-			<version>2.0.2</version>
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-tram-sagas-in-memory</artifactId>
+		    <version>0.10.0.M3</version>
+		    <scope>test</scope>
+		</dependency>		
+		<dependency>
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-tram-sagas-orchestration</artifactId>
+		    <version>0.11.1.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-tram-sagas-common</artifactId>
+		    <version>0.11.1.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.eventuate.tram.core</groupId>
+  			<artifactId>eventuate-tram-events</artifactId>
+ 			<version>0.22.0.RC5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-optimistic-locking</artifactId>
+			<version>0.22.0.RC5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.common</groupId>
+  			<artifactId>eventuate-common-json-mapper</artifactId>
+  			<version>0.7.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
+	 	 	<version>0.22.0.RC5</version>
+		</dependency> 
+		
+		-->
+		<!-- EVENTUATE END-->
+		
+<!-- 		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
+	 	 	<version>0.22.0.RC5</version>
 		</dependency> -->
-		<!-- <dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-core</artifactId>
-		    <version>4.1.4.Final</version>
-		</dependency> -->
+		<dependency>
+		  	<groupId>io.eventuate.messaging.kafka</groupId>
+		  	<artifactId>eventuate-messaging-kafka-basic-consumer</artifactId>
+		  	<version>0.3.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-optimistic-locking</artifactId>
+			<version>0.22.0.RC5</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.eventuate.tram.core</groupId>
+  			<artifactId>eventuate-tram-events</artifactId>
+ 			<version>0.22.0.RC5</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.eventuate.tram.core</groupId>
+		    <artifactId>eventuate-tram-jdbc-kafka</artifactId>
+		    <version>0.22.0.RC5</version>
+		</dependency>
+		<!-- Eventuate -->
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-core</artifactId>
@@ -129,15 +207,14 @@
 		  <type>pom</type>
 		</dependency>
 		<!-- <dependency>
-    		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-entitymanager</artifactId>
-    		<version>5.2.3.Final</version>
+		    <groupId>org.jumpmind.symmetric.jdbc</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.2-1002-jdbc4</version>
+		    <scope>test</scope>
 		</dependency> -->
-		
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-entitymanager</artifactId>
-		  <version>5.4.0.Final</version>
 		</dependency>
 		
 		<dependency>
@@ -186,15 +263,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-surefire-plugin</artifactId>
-		        <configuration>
-		            Force alphabetical order to have a reproducible build
-		        <runOrder>alphabetical</runOrder>
-		        <useSystemClassLoader>false</useSystemClassLoader>
-        		</configuration>
-    		</plugin> -->
     		<plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-surefire-plugin</artifactId>
