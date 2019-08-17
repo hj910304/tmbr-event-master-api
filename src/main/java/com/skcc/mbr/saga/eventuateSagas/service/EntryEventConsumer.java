@@ -38,29 +38,20 @@ public class EntryEventConsumer {
 	 */
 	
 	public DomainEventHandlers domainEventHandlers() {
-		log.info("domainEventHandlers");
-//		return DomainEventHandlersBuilder
-//				.forAggregateType("com.skcc.mbr.saga.entry.domain.Entry")
-//				.onEvent(EntryCreatedEvent.class, this::handlerEntryCreatedEventHandler)
-//				.build();
-//		
 		DomainEventHandlers domainEvent = DomainEventHandlersBuilder.forAggregateType("com.skcc.mbr.saga.entry.domain.Entry")
 				.onEvent(EntryCreatedEvent.class, this::handlerEntryCreatedEventHandler)
 				.build();
-		
-		log.info("ttttt");
 		return domainEvent;
 		
 	}
 	
 	public void handlerEntryCreatedEventHandler(DomainEventEnvelope<EntryCreatedEvent> domainEventEnvelop) {
-		log.info("asdfasdfasdfasdf");
+		log.info("event수신 ");
 		EntryCreatedEvent entryCreatedEvent = domainEventEnvelop.getEvent();
-		System.out.println(entryCreatedEvent.getEntry().getEntry_id());
+		log.info("entryId:"+entryCreatedEvent.getEntry().getEntry_id());
+		log.info("eventId: "+entryCreatedEvent.getEntry().getEvent_id());
+		//eventId 가지고 가능 여부 조회 
 		EventInfo eventInfo = EventInfo.builder().eventContent("test").eventName("ttt").grade("GOLD").build();
-		
-		System.out.println("tttttttttttttttttt");
-		System.out.println("tt");
 		log.info("handler entry created eventhanelrd");
 		return;
 	}

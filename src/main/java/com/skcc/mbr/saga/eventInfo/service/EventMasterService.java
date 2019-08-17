@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skcc.mbr.saga.coupon.domain.Coupon;
+import com.skcc.mbr.saga.coupon.domain.CouponRepository;
 import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
 import com.skcc.mbr.saga.eventInfo.domain.EventInfoRepository;
 
@@ -18,18 +20,18 @@ public class EventMasterService {
 		@Autowired
 		EventInfoRepository eventInfoRepository; 
 		
-//		@Autowired
-//		CouponRepository couponRepository; 
-//		
-//		//전체 쿠폰 조회 
-//		public List<Coupon> getAllCoupon(){
-//			return couponRepository.findAll();
-//		}
-//		
-//		//event id로 조회조건 추가 
-//		public List<Coupon> getOneCoupon(Long eventId) {
-//			return couponRepository.findAllByEventId(eventId);
-//		}
+		@Autowired
+		CouponRepository couponRepository; 
+		
+		//전체 쿠폰 조회 
+		public List<Coupon> getAllCoupon(){
+			return couponRepository.findAll();
+		}
+		
+		//event id로 조회조건 추가 
+		public List<Coupon> getOneCoupon(Long eventId) {
+			return couponRepository.findAllByEventId(eventId);
+		}
 		
 		//전체 이벤트 조회 
 		public List<EventInfo> getAllEventInfo(){

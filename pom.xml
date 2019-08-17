@@ -42,7 +42,7 @@
 		<property name="connection.useUnicode">true</property>
 		<property name="connection.characterEncoding">utf-8</property>
 	</properties>
-
+	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -173,17 +173,6 @@
 		
 		-->
 		<!-- EVENTUATE END-->
-		
-<!-- 		<dependency>
-			<groupId>io.eventuate.tram.core</groupId>
-	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
-	 	 	<version>0.22.0.RC5</version>
-		</dependency> -->
-		<dependency>
-		  	<groupId>io.eventuate.messaging.kafka</groupId>
-		  	<artifactId>eventuate-messaging-kafka-basic-consumer</artifactId>
-		  	<version>0.3.0.RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>io.eventuate.tram.core</groupId>
 			<artifactId>eventuate-tram-optimistic-locking</artifactId>
@@ -199,19 +188,30 @@
 		    <artifactId>eventuate-tram-jdbc-kafka</artifactId>
 		    <version>0.22.0.RC5</version>
 		</dependency>
-		<!-- Eventuate -->
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
+	 	 	<version>0.22.0.RC5</version>
+		</dependency>
+		
+		
+<!-- 		<dependency>
+			<groupId>io.eventuate.messaging.kafka</groupId>
+			<artifactId>eventuate-messaging-kafka-common</artifactId>
+			<version>0.3.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
+	 	 	<version>0.22.0.RC5</version>
+		</dependency>  -->
+		<!-- Eventuate end -->
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-core</artifactId>
 		  <version>6.0.0.Alpha2</version>
 		  <type>pom</type>
 		</dependency>
-		<!-- <dependency>
-		    <groupId>org.jumpmind.symmetric.jdbc</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>9.2-1002-jdbc4</version>
-		    <scope>test</scope>
-		</dependency> -->
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-entitymanager</artifactId>
