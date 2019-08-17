@@ -193,19 +193,11 @@
 	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
 	 	 	<version>0.22.0.RC5</version>
 		</dependency>
-		
-		
-<!-- 		<dependency>
-			<groupId>io.eventuate.messaging.kafka</groupId>
-			<artifactId>eventuate-messaging-kafka-common</artifactId>
-			<version>0.3.0.RELEASE</version>
-		</dependency>
 		<dependency>
-			<groupId>io.eventuate.tram.core</groupId>
-	  		<artifactId>eventuate-tram-consumer-kafka</artifactId>
-	 	 	<version>0.22.0.RC5</version>
-		</dependency>  -->
-		<!-- Eventuate end -->
+		    <groupId>io.eventuate.tram.sagas</groupId>
+		    <artifactId>eventuate-tram-sagas-common</artifactId>
+		    <version>0.11.1.RELEASE</version>
+		</dependency>
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-core</artifactId>

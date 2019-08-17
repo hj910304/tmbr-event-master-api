@@ -48,7 +48,7 @@ public class EventInfo implements Serializable{
 	EventInfo(){
 		
 	}
-
+	
 	
 	@Builder
 	EventInfo(String eventName, String eventContent, String grade){

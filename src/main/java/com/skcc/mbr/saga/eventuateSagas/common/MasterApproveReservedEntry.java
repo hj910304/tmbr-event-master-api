@@ -7,6 +7,6 @@ public class MasterApproveReservedEntry extends AbstractMasterEntryEvent{
 	}
 	
 	public MasterApproveReservedEntry(Long entryId) {
-		super(entryId);
+		
 	}
 }

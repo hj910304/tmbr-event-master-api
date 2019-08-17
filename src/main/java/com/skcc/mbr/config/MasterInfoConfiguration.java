@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import com.skcc.mbr.saga.eventuateSagas.service.EntryEventConsumer;
+
+import com.skcc.mbr.saga.eventuateSagas.consumer.EntryEventConsumer;
 import com.skcc.mbr.saga.eventuateSagas.service.MasterSagaService;
 
 @Configuration
@@ -37,11 +38,6 @@ public class MasterInfoConfiguration {
 	@Bean
 	public MasterSagaService mastersagaService() {
 		return new MasterSagaService();
-	}
-	
-//	@Bean
-//	public MasterSagaService masterSagaService(DomainEventPublisher domainEventPublisher, EventInfoRepository eventInfoRepository) {
-//		return new MasterSagaService(domainEventPublisher, eventInfoRepository);
-//	}
+	}	
 	
 }

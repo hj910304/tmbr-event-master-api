@@ -1,5 +1,5 @@
 package com.skcc.mbr.saga.coupon.domain;
-
+import static java.util.Collections.singletonList;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.Access;
@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.skcc.mbr.saga.eventuateSagas.action.EventCouponReservedEvent;
+
+import io.eventuate.tram.events.publisher.ResultWithEvents;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -58,7 +61,7 @@ public class Coupon {
 		this.total_cnt = totalCnt; 
 		this.max_cnt = maxCnt; 
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM--dd HH:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = format.format(System.currentTimeMillis()); 
 		this.reg_date = time; 
 		this.upd_date = time;
