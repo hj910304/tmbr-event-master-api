@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.skcc.mbr.saga.eventInfo.domain.coupon.Coupon;
 import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
 import com.skcc.mbr.saga.eventInfo.service.CheckEventCouponService;
+import com.skcc.mbr.saga.eventuateSagas.action.EntryCancelledEvent;
 import com.skcc.mbr.saga.eventuateSagas.action.EntryCreatedEvent;
 import com.skcc.mbr.saga.eventuateSagas.action.EventCouponRejectedEvent;
 import com.skcc.mbr.saga.eventuateSagas.action.EventCouponReservedEvent;
@@ -41,6 +42,7 @@ public class EntryEventConsumer {
 		DomainEventHandlers domainEvent = DomainEventHandlersBuilder
 				.forAggregateType("com.skcc.mbr.saga.entry.domain.entry.Entry")
 				.onEvent(EntryCreatedEvent.class, this::handlerEntryCreatedEventHandler)		//entry생성하기 위한 요청 이벤트 (송신 위치와 같아야함)
+				.onEvent(EntryCancelledEvent.class, this::handlerEntryCancelledEventHandler)
 				.build();
 		return domainEvent;
 		
@@ -86,4 +88,11 @@ public class EntryEventConsumer {
 			return; 
 		}
 	}
+	public void handlerEntryCancelledEventHandler(DomainEventEnvelope<EntryCancelledEvent> domainEventEnvelop) {
+		log.info("cancelled 완료 " );
+		EntryCancelledEvent entryCancelledEvent = domainEventEnvelop.getEvent();
+		Long couponSeq = entryCancelledEvent.getCouponId();
+		chkecEventCouponService.plusEventCoupon(couponSeq);
+	}
+
 }

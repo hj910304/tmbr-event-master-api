@@ -15,11 +15,8 @@ public class MasterSagaService {
 	@Autowired
 	private EventInfoRepository eventInfoRepository;
 
-	
 //	public MasterSagaService(DomainEventPublisher domainEventPublisher, EventInfoRepository eventInfoRepository){
 //		this.domainEventPublisher = domainEventPublisher;
 //		this.eventInfoRepository = eventInfoRepository;
 //	}
-
-	
 }

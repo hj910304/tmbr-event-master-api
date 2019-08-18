@@ -11,6 +11,9 @@ public abstract class AbstractMasterEntryEvent implements MasterEvent{
 	protected Long eventId;
 	protected Long couponId; 
 	
+	protected AbstractMasterEntryEvent(Long couponId) {
+		this.couponId = couponId; 
+	}
 	protected AbstractMasterEntryEvent(Long eventId, Long entryId) {
 		this.entryId = entryId; 
 		this.eventId = eventId;
