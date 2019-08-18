@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface  CouponRepository extends JpaRepository<Coupon,Long>{
-
+	List<Coupon> findByEventId(Long eventId);
 }

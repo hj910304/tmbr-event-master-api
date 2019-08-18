@@ -1,5 +1,6 @@
 package com.skcc.mbr.saga.eventInfo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,19 @@ public class CheckEventCouponService {
 		
 		//쿠폰 존재여부 체크 
 		public boolean validateCouponInfo(Long eventId) {
-			Optional<Coupon> coupon = couponRepository.findById(eventId);
-			return coupon.isPresent();
+			List<Coupon> coupon = couponRepository.findByEventId(eventId);
+			if(coupon!=null) {
+				return true;
+			}else {
+				return false; 
+			}
 		}
 		
 		//쿠폰 발급가능 여부 체크 
 		public boolean valiateReserveEventCoupon(Long eventId) {
-			Optional<Coupon> coupon = couponRepository.findById(eventId);
-			if(coupon.get().getMax_cnt()<=coupon.get().getTotal_cnt()) {
+			List<Coupon> coupon = couponRepository.findByEventId(eventId);
+			Coupon cou = coupon.get(0);
+			if(cou.getMax_cnt()<=cou.getTotal_cnt()) {
 				return false;
 			}else {
 				return true; 
@@ -51,8 +57,8 @@ public class CheckEventCouponService {
 
 		//쿠폰 1건 조회 
 		public Coupon findEventCoupon(Long eventId) {
-			Coupon coupon = couponRepository.getOne(eventId);
-			return coupon;
+			List<Coupon> coupon = couponRepository.findByEventId(eventId);
+			return coupon.get(0);
 		}
 		
 		// 쿠폰 사용개수 차감

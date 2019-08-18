@@ -23,9 +23,9 @@ public class dataInsertController {
 		public Object insertEventInfo(String eventName, String eventContent, String grade) {
 			return eventMasterService.insertEventInfo(eventName, eventContent, grade);
 		}
-//		
-//		@RequestMapping(value="insertCoupon", method=RequestMethod.GET)
-//		public Object insertCoupon(Long eventId, int sendCnt, int totalCnt, int maxCnt) {
-//			return eventMasterService.insertCouponInfo(eventId, sendCnt, totalCnt, maxCnt);
-//		}
-}
+		
+		@RequestMapping(value="insertCoupon", method=RequestMethod.GET)
+		public Object insertCoupon(Long eventId, int sendCnt, int totalCnt, int maxCnt) {
+			return eventMasterService.insertCouponInfo(eventId, sendCnt, totalCnt, maxCnt);
+		}
+} 

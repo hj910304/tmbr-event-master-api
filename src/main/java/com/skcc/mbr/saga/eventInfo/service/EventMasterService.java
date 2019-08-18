@@ -60,10 +60,10 @@ public class EventMasterService {
 			EventInfo eventInfo = EventInfo.builder().eventName(eventName).eventContent(eventContent).grade(grade).build();
 			return eventInfoRepository.save(eventInfo);
 		}
-//		
-//		//coupon 테이블 insert 
-//		public Object insertCouponInfo(Long eventId, int sendCnt, int totalCnt, int maxCnt) {
-//			Coupon coupon = Coupon.builder().eventId(eventId).sendCnt(sendCnt).totalCnt(totalCnt).maxCnt(maxCnt).build();
-//			return couponRepository.save(coupon);
-//		}
+		
+		//coupon 테이블 insert 
+		public Object insertCouponInfo(Long eventId, int sendCnt, int totalCnt, int maxCnt) {
+			Coupon coupon = Coupon.builder().eventId(eventId).sendCnt(sendCnt).totalCnt(totalCnt).maxCnt(maxCnt).build();
+			return couponRepository.save(coupon);
+		}
 }
