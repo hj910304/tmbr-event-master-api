@@ -14,6 +14,8 @@ import com.skcc.mbr.saga.eventInfo.domain.EventInfoRepository;
  * 이벤트/쿠폰 체크서비스 
  * 1) 이벤트 유효성 체크 
  * 2) 쿠폰발급 제한 수체크 
+ * 3) 쿠폰 사용개수 차감
+ * 4) 쿠폰 사용개수 롤백 
  * @author hyejin
  * @Since 2019.08.16
  */
@@ -46,10 +48,24 @@ public class CheckEventCouponService {
 				return true; 
 			}
 		}
-		
-		//쿠폰 발급 로직 
-		public Optional<Coupon> consumeEventCoupon(Long eventId) {
-			Optional<Coupon> coupon = couponRepository.findById(eventId);
+
+		//쿠폰 1건 조회 
+		public Coupon findEventCoupon(Long eventId) {
+			Coupon coupon = couponRepository.getOne(eventId);
 			return coupon;
+		}
+		
+		// 쿠폰 사용개수 차감
+		public void minusEventCoupon(Long couponSeq) {
+			Coupon coupon = couponRepository.getOne(couponSeq);
+			coupon.setTotal_cnt(coupon.getTotal_cnt()+1);
+			couponRepository.save(coupon);
+		}
+		
+		// 쿠폰 사용개수 롤백 
+		public void plusEventCoupon(Long couponSeq) {
+			Coupon coupon = couponRepository.getOne(couponSeq);
+			coupon.setTotal_cnt(coupon.getTotal_cnt()-1);
+			couponRepository.save(coupon);
 		}
 }

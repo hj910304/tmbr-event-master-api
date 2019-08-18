@@ -1,5 +1,4 @@
 package com.skcc.mbr.saga.coupon.domain;
-import static java.util.Collections.singletonList;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.Access;
@@ -11,11 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.skcc.mbr.saga.eventuateSagas.action.EventCouponReservedEvent;
-
-import io.eventuate.tram.events.publisher.ResultWithEvents;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
@@ -23,6 +20,7 @@ import lombok.ToString;
 @Access(AccessType.FIELD)
 @ToString
 @Getter
+@Setter
 public class Coupon {
 	private static final long serialVersionUID = 1L;
 	
