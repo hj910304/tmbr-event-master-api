@@ -1,5 +1,4 @@
-package com.skcc.mbr.saga.coupon.domain;
-
+package com.skcc.mbr.saga.eventInfo.domain.coupon;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

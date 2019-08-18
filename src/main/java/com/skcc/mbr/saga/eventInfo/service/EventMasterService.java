@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skcc.mbr.saga.coupon.domain.Coupon;
-import com.skcc.mbr.saga.coupon.domain.CouponRepository;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfoRepository;
+import com.skcc.mbr.saga.eventInfo.domain.coupon.Coupon;
+import com.skcc.mbr.saga.eventInfo.domain.coupon.CouponRepository;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfoRepository;
 
 
 @Service
@@ -29,8 +29,8 @@ public class EventMasterService {
 		}
 		
 		//event id로 조회조건 추가 
-		public List<Coupon> getOneCoupon(Long eventId) {
-			return couponRepository.findAllByEventId(eventId);
+		public Coupon getOneCoupon(Long eventId) {
+			return couponRepository.getOne(eventId);
 		}
 		
 		//전체 이벤트 조회 

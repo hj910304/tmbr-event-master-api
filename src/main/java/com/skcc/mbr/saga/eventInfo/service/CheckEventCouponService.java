@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skcc.mbr.saga.coupon.domain.Coupon;
-import com.skcc.mbr.saga.coupon.domain.CouponRepository;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfoRepository;
+import com.skcc.mbr.saga.eventInfo.domain.coupon.Coupon;
+import com.skcc.mbr.saga.eventInfo.domain.coupon.CouponRepository;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfoRepository;
 
 /**
  * 이벤트/쿠폰 체크서비스 

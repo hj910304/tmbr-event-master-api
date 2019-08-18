@@ -2,15 +2,13 @@ package com.skcc.mbr.saga.eventInfo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skcc.mbr.saga.coupon.domain.Coupon;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
 import com.skcc.mbr.saga.eventInfo.service.EventMasterService;
 
 import io.swagger.annotations.Api;

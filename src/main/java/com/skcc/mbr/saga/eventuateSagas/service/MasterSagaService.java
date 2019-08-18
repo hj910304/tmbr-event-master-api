@@ -1,9 +1,8 @@
 package com.skcc.mbr.saga.eventuateSagas.service;
 
-import io.eventuate.tram.events.publisher.DomainEventPublisher;
-import io.eventuate.tram.events.publisher.ResultWithEvents;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfoRepository;
+
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfoRepository;
 
 import io.eventuate.tram.events.publisher.DomainEventPublisher;
 

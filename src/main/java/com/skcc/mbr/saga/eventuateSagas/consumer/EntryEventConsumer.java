@@ -1,12 +1,11 @@
 package com.skcc.mbr.saga.eventuateSagas.consumer;
 
 import java.util.Collections;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.skcc.mbr.saga.coupon.domain.Coupon;
-import com.skcc.mbr.saga.eventInfo.domain.EventInfo;
+import com.skcc.mbr.saga.eventInfo.domain.coupon.Coupon;
+import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
 import com.skcc.mbr.saga.eventInfo.service.CheckEventCouponService;
 import com.skcc.mbr.saga.eventuateSagas.action.EntryCreatedEvent;
 import com.skcc.mbr.saga.eventuateSagas.action.EventCouponRejectedEvent;
@@ -14,7 +13,6 @@ import com.skcc.mbr.saga.eventuateSagas.action.EventCouponReservedEvent;
 import com.skcc.mbr.saga.eventuateSagas.action.EventInfoValidationFailed;
 
 import io.eventuate.tram.events.publisher.DomainEventPublisher;
-import io.eventuate.tram.events.publisher.ResultWithEvents;
 import io.eventuate.tram.events.subscriber.DomainEventEnvelope;
 import io.eventuate.tram.events.subscriber.DomainEventHandlers;
 import io.eventuate.tram.events.subscriber.DomainEventHandlersBuilder;
@@ -41,7 +39,7 @@ public class EntryEventConsumer {
 	
 	public DomainEventHandlers domainEventHandlers() {
 		DomainEventHandlers domainEvent = DomainEventHandlersBuilder
-				.forAggregateType("com.skcc.mbr.saga.entry.domain.Entry")
+				.forAggregateType("com.skcc.mbr.saga.entry.domain.entry.Entry")
 				.onEvent(EntryCreatedEvent.class, this::handlerEntryCreatedEventHandler)		//entry생성하기 위한 요청 이벤트 (송신 위치와 같아야함)
 				.build();
 		return domainEvent;
