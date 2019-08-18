@@ -22,7 +22,6 @@ import lombok.ToString;
 @Getter
 @Setter
 public class Coupon {
-	private static final long serialVersionUID = 1L;
 	
 	//이벤트 id 
 	@Column(name="event_id")

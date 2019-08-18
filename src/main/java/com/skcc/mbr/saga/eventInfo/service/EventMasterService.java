@@ -11,8 +11,11 @@ import com.skcc.mbr.saga.eventInfo.domain.coupon.CouponRepository;
 import com.skcc.mbr.saga.eventInfo.domain.event.EventInfo;
 import com.skcc.mbr.saga.eventInfo.domain.event.EventInfoRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @Service
+@Slf4j
 public class EventMasterService {
 		/*
 		 * 데이터 조회 영역 
@@ -35,14 +38,20 @@ public class EventMasterService {
 		
 		//전체 이벤트 조회 
 		public List<EventInfo> getAllEventInfo(){
+			log.info(eventInfoRepository.findAll().toString());
 			return eventInfoRepository.findAll();
 		}
 		
 		//event_id로 이벤트 단건 조회 
 		public EventInfo getOneEventInfo(Long eventId) {
-			return eventInfoRepository.findAllByEventId(eventId);
+			return eventInfoRepository.getOne(eventId);
 		}
 		
+		//event_id로 쿠 단건 조회 
+		public Coupon getOndeCoupon(Long couponSeq) {
+			Coupon coupon =  couponRepository.getOne(couponSeq);
+			return coupon; 
+		}
 		/*
 		 * 데이터 insert영역 
 		 */
