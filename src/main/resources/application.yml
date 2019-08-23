@@ -1,0 +1,16 @@
+spring:
+  profiles: container
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/eventuate
+    username: mysqluser
+    password : mysqlpw
+    driver-class-name: com.mysql.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 9090

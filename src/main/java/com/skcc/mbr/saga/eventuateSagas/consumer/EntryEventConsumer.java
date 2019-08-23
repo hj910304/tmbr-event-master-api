@@ -80,7 +80,7 @@ public class EntryEventConsumer {
 				return;
 			}
 		}else {
-			//쿠폰 발급 불가능 
+			//쿠폰 발급 불가능
 			log.info("master:불가");
 			domainEventPublisher.publish(EventInfo.class,
 					eventId,
