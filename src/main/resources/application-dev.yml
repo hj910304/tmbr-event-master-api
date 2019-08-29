@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://61.250.19.58:31585/eventuate
+    username: mysqluser
+    password: mysqlpw
+
+eventuatelocal.kafka.bootstrap.servers: tmbr-kafka:9092
+eventuatelocal.zookeeper.connection.string: tmbr-zookeeper:2181

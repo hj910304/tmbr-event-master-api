@@ -1,16 +1,22 @@
-spring:
-  profiles: container
-  jpa:
-    database: MYSQL
-    hibernate:
-      ddl-auto: validate
-    show-sql: true
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/eventuate
-    username: mysqluser
-    password : mysqlpw
-    driver-class-name: com.mysql.jdbc.Driver
-  main:
-    allow-bean-definition-overriding: true
 server:
   port: 9090
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: local
+  
+logging.level.org.springframework.orm.jpa: INFO
+logging.level.org.hibernate.SQL: INFO
+logging.level.io.eventuate: INFO
+
+eventuatelocal.cdc.db.user.name: root
+eventuatelocal.cdc.db.password: rootpassword
