@@ -1,24 +1,19 @@
+server:
+  port: 9090
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/eventuate
-    username: mysqluser
-    password: mysqlpw
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
   main:
     allow-bean-definition-overriding: true
-server:
-  port: 9090
+  profiles:
+    active: local
   
-tmbr-customer-api: ${DOCKER_HOST_IP:localhost}:7070
-tmbr-event-api: ${DOCKER_HOST_IP:localhost}:8080
-tmbr-event-master-api: ${DOCKER_HOST_IP:localhost}:9090
-eventuatelocal.kafka.bootstrap.servers: ${DOCKER_HOST_IP:localhost}:9092
-eventuatelocal.zookeeper.connection.string: ${DOCKER_HOST_IP:localhost}:2181
-
 logging.level.org.springframework.orm.jpa: INFO
 logging.level.org.hibernate.SQL: INFO
 logging.level.io.eventuate: INFO

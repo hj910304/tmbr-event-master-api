@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/eventuate
+    username: mysqluser
+    password: mysqlpw
+
+eventuatelocal.kafka.bootstrap.servers: ${DOCKER_HOST_IP:localhost}:9092
+eventuatelocal.zookeeper.connection.string: ${DOCKER_HOST_IP:localhost}:2181
