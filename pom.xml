@@ -38,7 +38,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<springfox-swagger2.version>2.10.0</springfox-swagger2.version>
 		<property name="connection.useUnicode">true</property>
 		<property name="connection.characterEncoding">utf-8</property>
 	</properties>
